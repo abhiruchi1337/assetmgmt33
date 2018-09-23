@@ -75,4 +75,9 @@ Route::get('sm',[
     'middleware' => 'roles',
     'roles' => ['Store Mgr']
 ]);
+Route::get('user',[
+    'uses' => 'UserController@index',
+    'middleware' => 'roles',
+    'roles' => ['User']
+]);
 Route::get('/home', 'HomeController@index')->name('home');
