@@ -57,10 +57,22 @@ Route::get('login', [
   ]);
 // Auth::routes();
 
+//admin route
 Route::get('admin',[
     'uses' => 'AdminController@index',
     'middleware' => 'roles',
     'roles' => ['Admin']
 ]);
 
+//po route
+Route::get('po',[
+    'uses' => 'PurchaseOfficerController@index',
+    'middleware' => 'roles',
+    'roles' => ['Purchase Officer']
+]);
+Route::get('sm',[
+    'uses' => 'StoreMgrController@index',
+    'middleware' => 'roles',
+    'roles' => ['Store Mgr']
+]);
 Route::get('/home', 'HomeController@index')->name('home');

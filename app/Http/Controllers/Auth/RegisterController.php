@@ -81,6 +81,7 @@ class RegisterController extends Controller
                 'department' => $data['department'], 
             ]);
             $user->roles()->attach(Role::where('name','Guest')->first());
+            return $user;
 
         }
         
