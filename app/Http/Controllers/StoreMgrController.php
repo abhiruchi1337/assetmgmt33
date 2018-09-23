@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class StoreMgrController extends Controller
 {
     public function index(){
-        return view('sm');
+        return view('/sm/home');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
+
+<!-- <html> -->
     <head>
         <title>Store Manager home</title>
         <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 }
 </style>
     </head>
-    <body>
+@section('content')
         <div class="col-sm-4">
             REQUIRED ASSETS LIST <!--Side bar for requests-->
             <table class="table">
@@ -55,5 +55,6 @@
                         </div>
                     </div>
                 </div>
-    </body>
-</html>
+@endsection
+    <!-- </body> -->
+<!-- </html> -->

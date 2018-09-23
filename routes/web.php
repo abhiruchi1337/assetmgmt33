@@ -80,4 +80,8 @@ Route::get('user',[
     'middleware' => 'roles',
     'roles' => ['User']
 ]);
+Route::get('sm/home',['uses' => 'StoreMgrController@index',
+'middleware' => 'roles',
+'roles' => ['Store Mgr']
+]);
 Route::get('/home', 'HomeController@index')->name('home');
