@@ -80,8 +80,15 @@ Route::get('user',[
     'middleware' => 'roles',
     'roles' => ['User']
 ]);
-Route::get('sm/home',['uses' => 'StoreMgrController@index',
-'middleware' => 'roles',
-'roles' => ['Store Mgr']
-]);
+// Route::get('sm/home',['uses' => 'StoreMgrController@index',
+// 'middleware' => 'roles',
+// 'roles' => ['Store Mgr']
+// ]);
+Route::group(['prefix' => 'sm', 'middleware' => 'roles',
+'roles' => ['Store Mgr']], function () {
+    Route::get('home', 'StoreMgrController@index');
+    Route::get('/lel', function(){
+        return view('sm');
+    });
+});
 Route::get('/home', 'HomeController@index')->name('home');
