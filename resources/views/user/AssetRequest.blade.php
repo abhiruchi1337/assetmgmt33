@@ -52,25 +52,26 @@
                 </ul>
             </div>
         </nav>
-       <form class="form-horizontal" action="/action_page.php">
+       <form class="form-horizontal" action= "{{ action('UserController@postindent') }}" method='POST'>
  <center> 
 <div class="form-group">
     <label class="control-label col-md-2" for="item">Item*:</label>
     <div class="col-md-10">
-      <input type="text" class="form-control" id="item" placeholder="Enter item name"><br></br>
+      <input type="text" class="form-control" id="item" name="item" placeholder="Enter item name"><br></br>
     </div>
     <label class="control-label col-md-2" for="no.">Quantity*:</label>
     <div class="col-md-10"> 
-      <input type="number" class="form-control" id="no." placeholder="Enter quantity"><br></br>
+      <input type="number" class="form-control" id="no." name="qty" placeholder="Enter quantity"><br></br>
     </div>
     <label class="control-label col-md-2" for="desc.">Description:</label>
     <div class="col-md-10"> 
-      <input type="text" class="form-control" id="desc" placeholder="Enter description if any"><br></br>
+      <input type="text" class="form-control" id="desc" name="desc" placeholder="Enter description if any"><br></br>
     </div>
     <label class="control-label col-sm-2" for="reason">Reason for Request*:</label>
     <div class="col-md-10"> 
-      <input type="text" class="form-control" id="reason" placeholder="Enter the reason for your request"><br></br>
+      <input type="text" class="form-control" id="reason" name="reason" placeholder="Enter the reason for your request"><br></br>
     </div>
+    <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
