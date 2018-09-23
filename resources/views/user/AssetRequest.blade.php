@@ -95,6 +95,7 @@
             <a href="#" id="footname"><p>RISHIL KIRTIKAR</p></a> &nbsp;&nbsp;&nbsp;
             <a href="#" id="footname"><p>SMRUTI KSHIRSAGAR</p></a> &nbsp;&nbsp;&nbsp;
             <a href="#" id="footname"><p>SANKET GOKHALE</p></a> &nbsp;&nbsp;&nbsp;
+            <a href="#" id="footname"><p>ABHIRUCHI BHATTACHARYA</p></a> &nbsp;&nbsp;&nbsp;
         </div>
  
     <div class="col-md-4">
