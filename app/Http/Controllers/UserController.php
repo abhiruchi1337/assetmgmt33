@@ -13,6 +13,7 @@ class UserController extends Controller
         return view('user/AssetRequest');
 
     }
+
     public function postindent(Request $request){
         $indent=new Indent();
         $indent->user_id=\Auth::user()->id;
@@ -22,5 +23,9 @@ class UserController extends Controller
         $indent->status=0;
         $indent->save();
         return redirect()->back();
+    }
+    public function viewindents(){
+        $indents=Indent::where('user_id',\Auth::user()->id)->all();
+        // return view()
     }
 }
