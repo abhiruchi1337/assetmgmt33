@@ -25,7 +25,7 @@ class UserController extends Controller
         return redirect()->back();
     }
     public function viewindents(){
-        $indents=Indent::where('user_id',\Auth::user()->id)->all();
-        // return view()
+        $indents=Indent::where('user_id',\Auth::user()->id)->get();
+        return view('user/user_request')->with('indents',$indents);
     }
 }

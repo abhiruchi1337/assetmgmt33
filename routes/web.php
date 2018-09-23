@@ -75,11 +75,11 @@ Route::get('po',[
 //     'middleware' => 'roles',
 //     'roles' => ['Store Mgr']
 // ]);
-Route::get('user',[
-    'uses' => 'UserController@index',
-    'middleware' => 'roles',
-    'roles' => ['User']
-]);
+// Route::get('user',[
+//     'uses' => 'UserController@index',
+//     'middleware' => 'roles',
+//     'roles' => ['User']
+// ]);
 // Route::get('sm/home',['uses' => 'StoreMgrController@index',
 // 'middleware' => 'roles',
 // 'roles' => ['Store Mgr']
@@ -96,6 +96,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'roles',
 'roles' => ['User']], function () {
     Route::get('home', 'UserController@index');
     Route::get('request', 'UserController@requestasset');
+    Route::get('view', 'UserController@viewindents');
     Route::post('request/post', 'UserController@postindent');
     Route::get('/lel', function(){
         return view('user');
