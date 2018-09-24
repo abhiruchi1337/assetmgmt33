@@ -106,6 +106,7 @@ Route::group(['prefix' => 'po', 'middleware' => 'roles',
 'roles' => ['Purchase Officer']], function () {
     Route::get('/', 'PurchaseOfficerController@index');// if url-appname.com/user/
     Route::get('/indent', 'PurchaseOfficerController@getindent');
+    Route::post('/update', 'PurchaseOfficerController@updateindent');
     });
 // });
 

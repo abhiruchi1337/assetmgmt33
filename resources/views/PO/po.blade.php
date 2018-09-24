@@ -96,6 +96,9 @@
        <td>    <a href="#">{{$i->item}}</a>
        
        <td>{{$i->user_id}}
+       @if($i->status==1)
+          <strong>Approved</strong>
+       @endif
        <form method='GET' action="{{ action('PurchaseOfficerController@getindent') }}">
          <input type='hidden' name='item' value='{{$i->item}}'></input>
          <input type='hidden' name='qty' value='{{$i->qty}}'></input>
@@ -103,6 +106,7 @@
          <input type='hidden' name='status' value='{{$i->status}}'></input>
          <input type='hidden' name='reason' value='{{$i->reason_request}}'></input>
          <input type='hidden' name='desc' value='{{$i->description}}'></input>
+         <input type='hidden' name='id' value='{{$i->id}}'></input>
           <button type='submit'>View details</button>
          </form>
        </tr>
