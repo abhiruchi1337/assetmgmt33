@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 use App\Indent;
+=======
+
+>>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index(){
+<<<<<<< HEAD
         return view('user/Dashboard');
     }
     public function requestasset(Request $request){
@@ -27,5 +32,8 @@ class UserController extends Controller
     public function viewindents(){
         $indents=Indent::where('user_id',\Auth::user()->id)->get();
         return view('user/user_request')->with('indents',$indents);
+=======
+        return view('user');
+>>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
     }
 }

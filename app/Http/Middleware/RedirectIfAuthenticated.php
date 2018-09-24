@@ -18,6 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+<<<<<<< HEAD
             $redirectstr='';
             $actions=$request->route()->getAction();
             $roles=isset($actions['roles'])? $actions['roles']:null;
@@ -25,6 +26,8 @@ class RedirectIfAuthenticated
                 $redirectstr=$roles[0];
                 return redirect('/'.$redirectstr);
             }
+=======
+>>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
             return redirect('/home');
         }
 

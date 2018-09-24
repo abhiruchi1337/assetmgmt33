@@ -39,7 +39,11 @@ class User extends Authenticatable
             }
         }
         else{
+<<<<<<< HEAD
             if($this->hasRole($roles)){
+=======
+            if($this->hasRole($r)){
+>>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
                 return true;
             }
         }

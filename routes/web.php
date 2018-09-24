@@ -102,4 +102,20 @@ Route::group(['prefix' => 'user', 'middleware' => 'roles',
         return view('user');
     });
 });
+
+Route::get('sm',[
+    'uses' => 'StoreMgrController@index',
+    'middleware' => 'roles',
+    'roles' => ['Store Mgr']
+]);
+Route::get('user',[
+    'uses' => 'UserController@index',
+    'middleware' => 'roles',
+    'roles' => ['User']
+]);
+Route::get('sm/home',['uses' => 'StoreMgrController@index',
+'middleware' => 'roles',
+'roles' => ['Store Mgr']
+]);
+
 Route::get('/home', 'HomeController@index')->name('home');

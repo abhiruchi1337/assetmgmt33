@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 ## Changes you might need to do:
 in the '.env' file, change the db_database, db_username and password to whatever it is in your phpmyadmin/local server.
 
+=======
+>>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
