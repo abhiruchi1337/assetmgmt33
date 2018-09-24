@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Store_stock;
+use App\Requests;
 use Illuminate\Http\Request;
 
 class StoreMgrController extends Controller
 {
     public function index(){
-<<<<<<< HEAD
-
-=======
->>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
-        return view('/sm/home');
+        $stock=Store_stock::all();
+        $request=Requests::all();
+        // return $stock;
+        return view('/sm/home')->with('stock',$stock)->with('request',$request);
     }
 }

@@ -23,6 +23,15 @@
         <div class="col-sm-4">
             REQUIRED ASSETS LIST <!--Side bar for requests-->
             <table class="table">
+            @if(isset($request))
+                @foreach($request as $s)
+                <tr><td>Item</td></tr>
+                <tr><td>{{$s->item}}</td>
+                <td><a href="#" role="button" class="btn btn-primary btn-block">Available</a></td>
+                <td><a href="#" role="button" class="btn btn-primary btn-block">Pending</a></td></tr>
+                <tr><td></td>
+                @endforeach
+            @endif
                 <tr><td>Item</td></tr>
                 <tr><td></td>
                 <td><a href="#" role="button" class="btn btn-primary btn-block">Available</a></td>
@@ -35,7 +44,18 @@
         <div class="col-sm-8">
             INVENTORY<!--Showing available resources-->
             <div class="main">
-                    <div class="thumbnail col-sm-2">
+            @if(isset($stock))
+                @foreach($stock as $s)
+                <div class="thumbnail col-sm-2">
+                        <div class="caption">
+                            <h4>{{$s->item_name}}</h4><p>{{$s->qty}}</p>
+                                <p><a href="#" role="button" class="btn btn-primary">+</a> <a href="#" role="button" class="btn btn-primary">-</a></p>
+                        </div>
+                    </div>
+                
+                @endforeach
+            @endif
+                    <!-- <div class="thumbnail col-sm-2">
                         <div class="caption">
                             <h4>Item 1</h4><p>Quantity:</p>
                                 <p><a href="#" role="button" class="btn btn-primary">+</a> <a href="#" role="button" class="btn btn-primary">-</a></p>
@@ -54,7 +74,7 @@
                         </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 @endsection
     <!-- </body> -->
 <!-- </html> -->
