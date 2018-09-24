@@ -91,25 +91,18 @@
     <div class="col-md-10"> 
       <input type="number" class="form-control" id="no." value='{{$qty}}'><br></br>
     </div>
-    
-    @endif
-  @endif
-    <!-- <label class="control-label col-md-2" for="item">Item*:</label>
-    <div class="col-md-10">
-      <input type="text" class="form-control" id="item" placeholder="Item name"><br></br>
-    </div>
-    <label class="control-label col-md-2" for="no.">Quantity*:</label>
-    <div class="col-md-10"> 
-      <input type="number" class="form-control" id="no." value=><br></br>
-    </div> -->
     <label class="control-label col-md-2" for="desc.">Description:</label>
     <div class="col-md-10"> 
-      <input type="text" class="form-control" id="desc" placeholder="Description "><br></br>
+      <input type="text" class="form-control" id="desc" value='{{$desc}}'><br></br>
     </div>
     <label class="control-label col-sm-2" for="reason">Reason for Request*:</label>
     <div class="col-md-10"> 
-      <input type="text" class="form-control" id="reason" placeholder="Reason for the request"><br></br>
+      <input type="text" class="form-control" id="reason" value='{{$reason}}'><br></br>
     </div>
+    @endif
+  @endif
+    
+    
     <div>
       <button type="submit" class="btn btn-default">Accept</button>
     </div>

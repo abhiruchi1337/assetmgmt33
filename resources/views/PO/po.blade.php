@@ -101,7 +101,9 @@
          <input type='hidden' name='qty' value='{{$i->qty}}'></input>
          <input type='hidden' name='u_id' value='{{$i->user_id}}'></input>
          <input type='hidden' name='status' value='{{$i->status}}'></input>
-          <button type='submit'></button>
+         <input type='hidden' name='reason' value='{{$i->reason_request}}'></input>
+         <input type='hidden' name='desc' value='{{$i->description}}'></input>
+          <button type='submit'>View details</button>
          </form>
        </tr>
  <tr>
