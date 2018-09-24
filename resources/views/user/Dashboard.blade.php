@@ -59,6 +59,7 @@ $('input').on('click', function(){
 <ul class="nav navbar-nav">
 <li class="active"><a href="#">Home</a></li>
 </ul>
+<<<<<<< HEAD
 <ul class="nav navbar-nav">
 <li class="active"><a href="/user/request">Apply indent</a></li>
 </ul>
@@ -69,6 +70,8 @@ $('input').on('click', function(){
 <li class="active"><a action="/logout">Logout</a></li>
 </ul> -->
                                     
+=======
+>>>>>>> 1be6da716877b9dd98fc542e96287e90f5a92ef7
 </div>
 </nav>
         <div class="container-fluid">

@@ -25,8 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
-    // protected $redirectstr;
+     // protected $redirectstr;
     // public function setredirect(){
     //     $redirectstr='/home';
     // $actions=$request->route()->getAction();
@@ -37,11 +36,9 @@ class LoginController extends Controller
 
     // }
     
-    // protected $redirectTo = '/home';
-    // protected $redirectTo = $redirectstr;
-=======
     protected $redirectTo = '/home';
->>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
+    // protected $redirectTo = $redirectstr;
+
 
     /**
      * Create a new controller instance.
@@ -52,7 +49,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
+
     protected function authenticated($request, $user)
     {
         // echo $request;
@@ -88,6 +85,5 @@ class LoginController extends Controller
         return redirect($redirectstr);
     }
 
-=======
->>>>>>> d360023cbe9d7b60c27642ad6a2c723e66edd221
+
 }
