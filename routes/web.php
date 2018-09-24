@@ -87,7 +87,11 @@ Route::get('admin',[
 Route::group(['prefix' => 'sm', 'middleware' => 'roles',
 'roles' => ['Store Mgr']], function () {
     Route::get('/', 'StoreMgrController@index');
-    Route::get('pending', 'StoreMgrController@pending');
+    Route::get('pendingview', function(){
+      return view('/sm/pending');
+    });
+    Route::post('/pending', 'StoreMgrController@setpending');
+    Route::post('/allot', 'StoreMgrController@allotAsset');
     Route::get('/lel', function(){
         return view('sm');
     });

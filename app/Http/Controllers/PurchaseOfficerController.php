@@ -9,7 +9,9 @@ use App\Store_stock;
 class PurchaseOfficerController extends Controller
 {
     public function index(){
-        $indents=Indent::all();
+        $indents=Indent::where('department',\Auth::user()->department)->where('status','<',2)->get();
+        // echo \Auth::user()->department;
+        // return $indents;
         
          return view('/PO/PO')->with('indents',$indents);
     }
@@ -31,23 +33,24 @@ class PurchaseOfficerController extends Controller
         $original=Indent::where('id',$id)->first();
         $original->status=$status;
         
-        $request=new Requests();
-        $request->po_id=\Auth::user()->id;
-        $request->item=$original->item;
-        $request->qty=$original->qty;
+        $requests=new Requests();
+        $requests->po_id=\Auth::user()->id;
+        $requests->item=$original->item;
+        $requests->qty=$original->qty;
+        $requests->indent_id=$id;
         $stock= Store_stock::where('item_name',$original->item)->first();
         if (isset($stock)){
             if($stock->qty >= $original->qty){
-                $request->available=1;
+                $requests->available=1;
             }
             else{
-                $request->available=0;
+                $requests->available=0;
             }
         }
         else{
-            $request->available=0;
+            $requests->available=0;
         }
-        $request->save();
+        $requests->save();
         $original->save();
 
         return redirect('/po');

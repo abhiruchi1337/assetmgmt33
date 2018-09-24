@@ -21,28 +21,54 @@
     </head>
 @section('content')
         <div class="col-sm-4">
-            REQUIRED ASSETS LIST <!--Side bar for requests-->
+            <h1>REQUIRED ASSETS LIST</h1> <!--Side bar for requests-->
             <table class="table">
+            <tr><td>Item</td>
+                <td>Quantity</td>
+                <td>In stock?</td>
             @if(isset($request))
                 @foreach($request as $s)
-                <tr><td>Item</td></tr>
+                <!-- <tr><td>Item</td></tr> -->
+                
                 <tr><td>{{$s->item}}</td>
-                <td><a href="#" role="button" class="btn btn-primary btn-block">Available</a></td>
-                <td><a href="#" role="button" class="btn btn-primary btn-block">Pending</a></td></tr>
+                <td>{{$s->qty}}</td>
+                @if($s->available == 0 )
+                <td>No</td>
+                <!-- <td><a href="#" role="button" class="btn btn-primary btn-block">Allot</a></td> -->
+                <td><form method='POST' action="{{ action('StoreMgrController@setpending') }}">
+                
+                <input type='hidden' name='id' value='{{$s->id}}'></input>
+                <input type='hidden' name='status' value=0></input>
+                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                <button type="submit" class="btn btn-primary btn-block">Mark as pending</button></form></td></tr>
+                @else
+                <td>Yes</td>
+                <td><form method='POST' action="{{ action('StoreMgrController@allotAsset') }}">
+                <input type='hidden' name='id' value='{{$s->id}}'></input>
+                <input type='hidden' name='status' value=1></input>
+                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                <button type="submit" class="btn btn-primary btn-block">Allot</button></form></td>
+                <td><form method='POST' action="{{ action('StoreMgrController@setpending') }}">
+                <input type='hidden' name='id' value='{{$s->id}}'></input>
+                <input type='hidden' name='status' value=0></input>
+                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                <button type="submit" class="btn btn-primary btn-block">Mark as pending</button></form></td></tr>
+                @endif
+
                 <tr><td></td>
                 @endforeach
             @endif
-                <tr><td>Item</td></tr>
+                <!-- <tr><td>Item</td></tr>
                 <tr><td></td>
                 <td><a href="#" role="button" class="btn btn-primary btn-block">Available</a></td>
                 <td><a href="#" role="button" class="btn btn-primary btn-block">Pending</a></td></tr>
                 <tr><td></td>
                 <td><a href="#" role="button" class="btn btn-primary btn-block">Available</a></td>
-                <td><a href="#" role="button" class="btn btn-primary btn-block">Pending</a></td></tr>
+                <td><a href="#" role="button" class="btn btn-primary btn-block">Pending</a></td></tr> -->
             </table>
         </div>
         <div class="col-sm-8">
-            INVENTORY<!--Showing available resources-->
+            <h1>INVENTORY</h1><!--Showing available resources-->
             <div class="main">
             @if(isset($stock))
                 @foreach($stock as $s)
