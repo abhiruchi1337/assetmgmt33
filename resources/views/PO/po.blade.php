@@ -61,6 +61,7 @@
         <li class="active"><a href="#">Home</a></li>
       
       </ul>
+      
 <!--
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -89,14 +90,24 @@
        <th width="45%">Assets</th>
        <th width="45%">Name of Staff</th>
         </tr>
-<tr>
-       <td>    <a href="#">1</a>
-       <td>abc
+        @if(isset($indents))
+          @foreach($indents as $i)
+          <tr>
+       <td>    <a href="#">{{$i->item}}</a>
+       
+       <td>{{$i->user_id}}
+       <form method='GET' action="{{ action('PurchaseOfficerController@getindent') }}">
+         <input type='hidden' name='item' value='{{$i->item}}'></input>
+         <input type='hidden' name='qty' value='{{$i->qty}}'></input>
+         <input type='hidden' name='u_id' value='{{$i->user_id}}'></input>
+         <input type='hidden' name='status' value='{{$i->status}}'></input>
+          <button type='submit'></button>
+         </form>
        </tr>
  <tr>
-       <td>2
-       <td>pqr
-       </tr>
+
+          @endforeach
+        @endif
  <tr>
        <td>
        <td>

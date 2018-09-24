@@ -17,6 +17,7 @@ class UserController extends Controller
     }
 
     public function postindent(Request $request){
+        // return $request;
         $indent=new Indent();
         $indent->user_id=\Auth::user()->id;
         $indent->item=$request->input('item');

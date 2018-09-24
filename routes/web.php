@@ -65,11 +65,11 @@ Route::get('admin',[
 ]);
 
 //po route
-Route::get('po',[
-    'uses' => 'PurchaseOfficerController@index',
-    'middleware' => 'roles',
-    'roles' => ['Purchase Officer']
-]);
+// Route::get('po',[
+//     'uses' => 'PurchaseOfficerController@index',
+//     'middleware' => 'roles',
+//     'roles' => ['Purchase Officer']
+// ]);
 // Route::get('sm',[
 //     'uses' => 'StoreMgrController@index',
 //     'middleware' => 'roles',
@@ -94,14 +94,20 @@ Route::group(['prefix' => 'sm', 'middleware' => 'roles',
 });
 Route::group(['prefix' => 'user', 'middleware' => 'roles',
 'roles' => ['User']], function () {
-    Route::get('/', 'UserController@index');
-    Route::get('request', 'UserController@requestasset');
+    Route::get('/', 'UserController@index');// if url-appname.com/user/
+    Route::get('request', 'UserController@requestasset');//url-appname.com/user/request
     Route::get('view', 'UserController@viewindents');
     Route::post('request/post', 'UserController@postindent');
     Route::get('/lel', function(){
         return view('user');
     });
 });
+Route::group(['prefix' => 'po', 'middleware' => 'roles',
+'roles' => ['Purchase Officer']], function () {
+    Route::get('/', 'PurchaseOfficerController@index');// if url-appname.com/user/
+    Route::get('/indent', 'PurchaseOfficerController@getindent');
+    });
+// });
 
 // Route::get('sm',[
 //     'uses' => 'StoreMgrController@index',
